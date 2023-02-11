@@ -1,9 +1,8 @@
 <?php $this->view('shared/header', 'Site Landing'); ?>
-	<h1>Landing Page</h1>
-        <div class="content">
-            <a>Welcome to this Web application.</a>
-            <br><br>
-            <a>We aim to please</a>
-        </div>
-	
+    	<h1>Landing Page</h1>
+        
+        <div>Welcome to this Web application.</div>
+        <div>We aim to please</div>
+    
+
 <?php $this->view('shared/footer'); ?>

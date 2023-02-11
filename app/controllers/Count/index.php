@@ -1,1 +1,0 @@
-//- Contrary to the other controller methods, the page load counter will simply return JSONencoded data through one echo command
