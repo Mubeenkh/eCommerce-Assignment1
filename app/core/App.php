@@ -9,15 +9,15 @@ class App
 
 		$request = $this->parseURL($_GET['url'] ?? '');
 
-		//we createa the Default controller and method
+		//we create a the Default controller and method
 		$controller = 'Main';
-		$method = 'index';
-		$params = [];
+		$method = 'index';  	//default methods of each controller
+		$params = [];			
 
 		if(file_exists('app/controllers/' . $request[0] . '.php')) 
 		{
 
-			$controller = $request[0];
+			$controller = $request[0];	//sets variable to the 
 			unset($request[0]); 		//removed whatever value is set on $request[0]
 
 		}
@@ -39,6 +39,8 @@ class App
 
 	function parseURL($url)
 	{
+		// http://localhost/Contact/index
+
 		return explode('/', trim($url,'/'));
 	}
 }
