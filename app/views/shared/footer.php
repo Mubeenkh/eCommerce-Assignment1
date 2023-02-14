@@ -1,5 +1,5 @@
-# page visit
-		<?php $this->view(''); ?>
+
+		<div><?php $this->view('Count/index'); ?> page visit</div>
 	</div> 
 	
     <!-- </div> -->
@@ -7,3 +7,4 @@
 </body>
 
 </html>
+

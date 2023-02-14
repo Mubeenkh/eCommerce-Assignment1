@@ -19,7 +19,7 @@
 	</form> 
 -->
 	<!-- My code mixed with Bootstrap's CSS -->
-	<form class="d-grid gap-3">
+	<form class="d-grid gap-3" method="post" action="">
 
 		<div class="form-group row">
 
@@ -35,7 +35,7 @@
 		<div class="form-group row">
 			<label class="col-sm-2 col-form-label">Message:</label>
 			<div class="col-sm-10">
-				<textarea class="form-control" ></textarea>
+				<textarea class="form-control" name="message"></textarea>
 				<!-- <input type="password" class="form-control" id="inputPassword" placeholder="Password"> -->
 			</div>
 		</div>
@@ -43,7 +43,7 @@
 		<div class="form-group row">
 			<label class="col-sm-2 col-form-label"></label>
 			<div class="col-sm-10">
-				<input class="form-control" type="submit" name="submit" value="Send!">
+				<input class="form-control" type="submit" name="action" value="send">
 			</div>
 			
 		</div>
