@@ -17,27 +17,7 @@
             padding: 10px;
             top: 5px;
         }
-
-        .content {
-            /* border: 1px solid black; */
-            
-        }
-
-        /*.sidebar ul li {
-            padding: 2px;
-            
-        }
-
-        .container h1 {
-           margin: 5px;
-            
-        }*/
-
-        .container div{
-/*            display: grid;*/
-/*            margin: 5px;*/
-        }
-        
+           
         .about-content div{
             gap:5px;
             margin-bottom: 10px;
@@ -52,6 +32,7 @@
         <div class="sidebar">
 
             <ul>
+                <!-- if i dont add "/" in front of the href path, it will keep adding to the url -->
                 <li><a href="/Main/index">Landing page</a></li>
                 <li><a href="/Main/about_us">About Us</a></li>
                 <li><a href="/Contact/index">Contact Us</a></li>

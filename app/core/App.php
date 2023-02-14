@@ -7,7 +7,9 @@ class App
 	function __construct()
 	{	
 		// _GET collects data from the url ex: .../?name=Mubeen
-		//we wish to route the request to to the appropriate class/method (/controllers/method)
+		//we wish to route the request to to the appropriate class/method (/controllers/method).
+
+		//request is an array containing two values 0.controller 1.method
 		$request = $this->parseURL($_GET['url'] ?? '');
 
 		//we create a the Default controller and method
@@ -25,10 +27,10 @@ class App
 			unset($request[0]); 		
 		}
 
-		$controller = 'app\\controllers\\' . $controller;  				
+		$controller = 'app\\controllers\\' . $controller;  	//if controller is not defined, then its gonna be the default controller Main	
 		$controller = new $controller; 		
 		
-		//Checks if the class in the controller and the method exist  
+		//Checks if the class controller (ex:"Main") exists and if the method (ex: "index") exists  
 		if(isset($request[1]) && method_exists($controller, $request[1]))
 		{
 			$method = $request[1];
@@ -45,6 +47,7 @@ class App
 	{
 		//explode : Splits a string into an array of strings using a separator character, explode( separator, Your string)
 		//trim(String, character you want to remove)
-		return explode('/', trim($url,'/'));
+
+		return explode('/', trim($url,'/')); // takes the url /Main/index and returns an array with 2 values
 	}
 }

@@ -16,7 +16,7 @@ class Contact extends \app\core\Controller{
 
  	public function create()
  	{
- 		if(isset($_POST['action']))
+ 		if(isset($_POST['send']))
  		{
  			$message = new \app\models\Messages(); //create the message object
 
@@ -30,7 +30,7 @@ class Contact extends \app\core\Controller{
  			header('location:/Contact/read'); //redirect towards the read page
 
  		}else{
- 			$this->view('Contact/read');
+ 			$this->view('/Contact/index');
  		}
 
  	}

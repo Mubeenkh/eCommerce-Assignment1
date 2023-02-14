@@ -1,0 +1,19 @@
+
+.htacess: booststrapping, so forcing it to run
+
+Options -MultiViews
+
+RewriteEngine On 								//without this, nothing under will run
+
+RewriteBase /									//
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]  	//does the boostraping. it rewrites the invoming address
+												//this "runs" the application, it basically runs index.php
+												//it takes the URL /localhost/Main/index but doesnt include the localhost. So its /Main/index
+
+RewriteRule ^()$ index.php?url=$1 [QSA,L]		//second is there just in case we dont send an empty request
+												QSA = Query String append
+

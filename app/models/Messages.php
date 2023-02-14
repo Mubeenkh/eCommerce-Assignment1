@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-define('Mes_File', 'messages.txt');
+define('Messsage_File', 'resources/messages.txt');
 
 class Messages{
 	
@@ -12,18 +12,20 @@ class Messages{
 
 	public function read()
 	{
-	    $content = file(Mes_File); //Reads entire file into an array
+	    $content = file(Messsage_File); //Reads entire file into an array
 		return $content;
 		//return file(Log_File); 
 	}
 
 	public function write()
 	{
-		$message = json_encode($this->message);
-
-		$fh = fopen(Mes_File, 'w'); //open file for writing only
+		
+		$fh = fopen(Messsage_File, 'a'); //open file for writing only
 		flock($fh, LOCK_EX);
-		fwrite($fh, "$this->message\n");
+
+		$message = json_encode($this);
+
+		fwrite($fh, "$message\n");
 		fclose($fh);
 
 	}
