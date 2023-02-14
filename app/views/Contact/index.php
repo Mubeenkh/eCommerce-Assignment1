@@ -3,7 +3,8 @@
 	<p>Wanna reach us? Write your email information and message in the following form and then submit.</p>
 
 	<!-- My code mixed with Bootstrap's CSS -->
-	<form class="d-grid gap-3" method="post" action="/app/Contact/create">
+	<!-- action="/Contact/create" is the path they should be referencing to run thr method create()  -->
+	<form class="d-grid gap-3" method="post" action="/Contact/create">  
 
 		<div class="form-group row">
 
