@@ -6,41 +6,45 @@ class App
 	//this entire function routed URL to a method call
 	function __construct()
 	{	
-
+		// _GET collects data from the url ex: .../?name=Mubeen
+		//we wish to route the request to to the appropriate class/method (/controllers/method)
 		$request = $this->parseURL($_GET['url'] ?? '');
 
 		//we create a the Default controller and method
 		$controller = 'Main';
-		$method = 'index';  	//default methods of each controller
+		$method = 'index';  	
 		$params = [];			
 
+		//Check if the requested controller is in our controllers folder?
 		if(file_exists('app/controllers/' . $request[0] . '.php')) 
 		{
+			//we get the name of the controller
+			$controller = $request[0];	
 
-			$controller = $request[0];	//sets variable to the 
-			unset($request[0]); 		//removed whatever value is set on $request[0]
-
+			//removed whatever value is set on $request[0], it's now empty;
+			unset($request[0]); 		
 		}
 
-		$controller = 'app\\controllers\\' . $controller;  
-			
-		$controller = new $controller; 						
+		$controller = 'app\\controllers\\' . $controller;  				
+		$controller = new $controller; 		
 		
-		
+		//Checks if the class in the controller and the method exist  
 		if(isset($request[1]) && method_exists($controller, $request[1]))
 		{
 			$method = $request[1];
 			unset($request[1]);
 		}
 		
-		$params = array_values($request);   
+		//array_values(input): reads an array, take the values from it, and create another array from it
+		$params = array_values($request); 
+		// Call the controller method with parameter
 		call_user_func_array([$controller, $method], $params);
 	}
 
 	function parseURL($url)
 	{
-		// http://localhost/Contact/index
-
+		//explode : Splits a string into an array of strings using a separator character, explode( separator, Your string)
+		//trim(String, character you want to remove)
 		return explode('/', trim($url,'/'));
 	}
 }

@@ -9,25 +9,28 @@ class Contact extends \app\core\Controller{
  	}
 
  	public function read()
- 	{
+ 	{	
  		$this->view('Contact/read');
+ 		
  	}
 
- 	public function send()
+ 	public function create()
  	{
  		if(isset($_POST['action']))
  		{
- 			$messages = new \app\models\Messages();
+ 			$message = new \app\models\Messages(); //create the message object
 
- 			$messages->email = $_POST['email'];
- 			$messages->message = $_POST['message'];
- 			$messages->IP = $_SERVER['REMOTE_ADDR'];
+ 			//place the input values into the message properties
+ 			$message->email = $_POST['email'];
+ 			$message->message = $_POST['message'];
+ 			$message->IP = $_SERVER['REMOTE_ADDR'];
 
- 			$messages->write();
- 			header('location:/Main/about_us');
+ 			$message->write(); //call the write funtion 
+
+ 			header('location:/Contact/read'); //redirect towards the read page
 
  		}else{
- 			$this->view('Main/about_us');
+ 			$this->view('Contact/read');
  		}
 
  	}

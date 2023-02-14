@@ -1,7 +1,7 @@
 <?php
 namespace app\controller;
 
-class Count{
+class Count extends \app\core\Controller{
 
 	function index()
 	{
