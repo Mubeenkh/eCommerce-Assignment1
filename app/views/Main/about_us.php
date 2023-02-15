@@ -14,7 +14,6 @@
 	        <p class="d-flex align-items-center">Billy Hiding from the bugs in the code</p>
 
 		</div>
-
-
 	</div>
+	
 <?php $this->view('shared/footer'); ?>

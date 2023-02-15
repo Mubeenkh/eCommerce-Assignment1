@@ -1,2 +1,5 @@
 {"email":"amy@email.com","message":"Hi","IP":"143.119.66.25"}
-{"email":"billy@email.com","message":"I love my Ducks!","IP":"141.78.73.72"}
+{"email":"billy@email.com","message":"I love my job!","IP":"141.78.73.72"}
+{"email":"mert@bananapillow.com","message":"I love banana pillows","IP":"::1"}
+{"email":"rachelle@bobatea.com","message":"milk chocolate with lychee balls","IP":"::1"}
+{"email":"mubeen@ducklings.com","message":"I love Ducks","IP":"::1"}
