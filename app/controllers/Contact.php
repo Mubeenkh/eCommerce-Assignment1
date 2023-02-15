@@ -30,6 +30,7 @@ class Contact extends \app\core\Controller{
  	{	
  		$message = new \app\models\Messages();
  		$content = $message->read();
+ 		
  		$this->view('Contact/read', $content); 		
  	}
 

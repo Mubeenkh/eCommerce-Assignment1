@@ -7,9 +7,9 @@
 		
 			$content = json_decode($content);
 	?>
-		
-		<div><b> <?= $content->email ?? '' ?> </b></div>
-		<p> <?= $content->message ?? ''?> </p>
+		<!-- htmlentities prevents users from writing scripts -->
+		<div><b> <?= htmlentities($content->email ?? '') ?> </b></div>
+		<p> <?= htmlentities($content->message ?? '')?> </p>
 	
 	<?php 
 		} 

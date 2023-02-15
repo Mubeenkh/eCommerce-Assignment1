@@ -1,11 +1,11 @@
 <?php
 namespace app\models;
 
-define('Log_File', '/resources/counter.txt');
+define('Log_File', 'resources/counter.txt');
 
 function Counter{
 
-	public $count = 0;
+	public $count;
 
 	function __construct()
 	{
@@ -26,19 +26,20 @@ function Counter{
 		}else{
 			$count = '{"count":0}';
 
-			$this->count = json_decode($count); //basically turns it into an array
+			
 		}
-
+			$result = json_decode($count);
+			$this->count = $result;
 	}
 
 	function increment()
 	{
-		$count++;
+		$this->$count+=1;
 	}
 
 	function write()
 	{
-		$count = json_encode($this->$count); //turns the array into a json
+		$count = json_encode($this); //turns the array into a json
 		$fh = fopen(Log_File, 'w'); // w for Writing only
 		flock($fh, LOCK_EX); // LOCK_EX to acquire an exclusive lock (writer).
 		fwrite($fh, $count);
@@ -47,7 +48,8 @@ function Counter{
 
 	function __toString()
 	{
-		return json_encode($this);
+		$obj = json_decode($this);
+		return $obj;
 	}
 
 }
